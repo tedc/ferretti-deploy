@@ -25,7 +25,7 @@
     <?php get_template_part(get_post_type() . '/icons'); ?>
     <?php get_template_part(get_post_type() . '/details'); ?>
     <?php 
-        $gallery = ($kind < 1) : '-wip' ? '';
+        $gallery = ($kind < 1) ? '-wip' : '';
         get_template_part(get_post_type() . '/gallery'.$gallery); ?>
     <?php if($kind < 1) : ?>
     <?php 
