@@ -1,0 +1,8 @@
+.corner.fr_corner_content
+    .frt_instagram
+        figure.frt_instagram_item(ng-repeat="item as items")
+            img(ng-src="{{resize(item.images.thumbnail.url)}}")
+        a.frt_btn(ng-href="{{}}")
+            .btn_wrapper
+                i.icon_button.icon-instagram
+                span.label_button Seguici su Instagram

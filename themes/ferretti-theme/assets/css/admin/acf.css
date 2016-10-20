@@ -1,0 +1,4 @@
+[data-name="titolo"][data-type="wysiwyg"] .acf-editor-wrap iframe, [data-name="titolo"][data-type="wysiwyg"] .wp-editor-area {
+  min-height: 80px;
+  height: 80px !important;
+}

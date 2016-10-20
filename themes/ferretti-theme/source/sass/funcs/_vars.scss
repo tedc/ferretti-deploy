@@ -1,0 +1,42 @@
+// COLORS
+@import 'funcs';
+
+$b: #000;
+$w: #fff;
+$r: #e3032e;
+$main_color: #262626;
+$blue: #002a50;
+$light_blue: #0086ff;
+$dark_grey: #595959;
+$grey: #999999;
+$light_grey: #acacac;
+$light-color: #595959;
+$soft-color: #f0efef;
+$border-color: darken($w, 15%);
+$c: #00A1B0;
+$y: #FAD755;
+$o: #ffaf00;
+$v: #628c01;
+$blog : #0069b4;
+$about : #90462a;
+$frt_btn_border_color: #262626;
+$main_font_size: 16px;
+$main_font: "sofia-pro", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$secondary_font: "museo-regular", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$letter-spacing: 0.2em;
+$letter-spacing-paragraph: 0.15em;
+$letter-spacing-btn: 0.25em;
+$interline: 2em;
+
+// SIZE
+$f: 100%;
+$bp: 850px;
+$max-width: em(1680px);
+$dist: 10px;
+$speed: 0.5s;
+$golden-ratio: 1.61803398875;
+$border_h: 4px;
+
+@import 'extends';
+

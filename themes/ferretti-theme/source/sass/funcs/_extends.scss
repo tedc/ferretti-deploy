@@ -1,0 +1,172 @@
+%normalize_padding {
+    padding: {
+        left: em($dist);
+        right: em($dist);
+    }
+    @media screen and (min-width: #{em(640px)}) {
+        padding: {
+            left: em($dist*2);
+            right: em($dist*2);
+        }
+    }
+    @media screen and (min-width: #{em($bp)}) {
+        padding: {
+            left: em($dist*4);
+            right: em($dist*4);
+        }
+    }
+    @media screen and (min-width: #{$max-width}) {
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+%normalize_content_padding {
+    padding: {
+        left: em($dist);
+        right: em($dist);
+    }
+    @media screen and (min-width: #{em(640px)}) {
+        padding: {
+            left: em($dist*2);
+            right: em($dist*2);
+        }
+    }
+    @media screen and (min-width: #{em($bp)}) {
+        padding: {
+            left: em($dist*4);
+            right: em($dist*4);
+        }
+    }
+    @media screen and (min-width: #{em($dist*100 + 24px)}) {
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+// FORMS
+
+%inputs {  
+    background-color: $soft-color;
+    width: $f;
+    transition: $speed background-color;
+    border: 0;
+    text: {
+        align: center;
+    }
+    padding: em($dist);
+    color: $main-color;
+    font: {
+        size: em($dist + 4px);
+    }
+    @include input-placeholder {
+        color: transparentize($light-color,.5);
+        font: {
+            style: italic;
+        }
+        text-transform: uppercase;
+    }
+    &:focus {
+        box-shadow: inset 1px 3px 5px #{transparentize($b,1)};
+        outline: none;
+    }
+}
+
+%btn {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    &:before {
+        @include position($top: 0, $left: 0, $w: $f, $h : $f);
+        content: '';
+        z-index: 0;
+        transition: $speed;
+        transform: rotate(45deg);
+        display: block;
+    }
+    &:after {
+        display: inline-block;
+        content: '';
+        width: 0;
+        padding-top: $f;
+        vertical-align: middle;
+    }    
+    &:hover {
+        &:before {
+            background-color: $main-color !important;
+            transform: scale(1.2) rotate(45deg);
+        }
+    }
+}
+
+%btnText {
+    position: relative;
+    z-index: 1;
+    color: $w;
+    text-transform: uppercase;
+    //font-weight: 300;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: em($dist + 4px);
+    padding: 0 em($dist/2, $dist + 4px);
+    .btn:hover & {
+        color: $w !important;
+    }
+}
+
+%buttons {
+    position: relative;
+    text-align: center;
+    &:before {
+        @include position($left: 0, $top: $f/2, $w: $f);
+        content: '';
+        transform: translateY(-50%);
+        height: 1px;
+    }
+}
+
+// GRIDS 
+
+%auto-margin {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+%container {
+    @include breakpoint(1280px){
+        max-width: $max-width;
+    }
+    @extend %auto-margin;
+}
+
+%content {
+    @include breakpoint($dist*100 + 24px) {
+        max-width: em($dist*100 + 24px);
+    }
+    @extend %auto-margin;
+}
+
+%form-container {
+    @extend %auto-margin;
+    padding: {
+        left: em($dist);
+        right: em($dist);
+    }
+    @include breakpoint($dist * 50) {   
+        max-width: $dist * 50;    
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+}
