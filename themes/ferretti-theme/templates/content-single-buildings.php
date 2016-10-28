@@ -47,6 +47,7 @@
             <h4 class="frt_title"><?php echo __('Le soluzioni di', 'frt'); ?> <?php the_title(); ?></h4>
         </header>
         <nav class="container_button container_button_center">
+            <span class="dashed_line"></span>
             <?php $terms = get_terms(array('taxonomy' => 'tipologie', 'orderby' =>'name')); 
                 foreach($terms as $term) :
                 echo '<a href="#" ng-click="$event.preventDefault()" class="frt_btn"><span class="btn_wrapper"><span class="label_button">'.$term->name.'</span></span></a>';
