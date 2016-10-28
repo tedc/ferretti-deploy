@@ -60,8 +60,10 @@
         </ul>
         <nav class="container_button container_button_center">
             <span class="dashed_line"></span>
-            <a href="#" ng-click="compare(<?php echo get_the_ID(); ?>)">
-                <span class="label_button"><?php echo __('Compara', 'frt'); ?></span>
+            <a href="#" ng-click="compare(<?php echo get_the_ID(); ?>)" class="frt_btn">
+                <span class="btn_wrapper">
+                    <span class="label_button"><?php echo __('Altro', 'frt'); ?></span>
+                </span>
             </a>
         </nav>
     </section>
