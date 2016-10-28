@@ -1,0 +1,40 @@
+.frt_quotes, .carousel {
+    .arrow {
+        @include breakpoint(1366px/$golden-ratio) {
+            &-prev {
+                left: calc( (100% - #{1366px/$golden-ratio}) / 2)
+            }
+            &-next {
+                right: calc( (100% - #{1366px/$golden-ratio}) / 2)
+            }
+        }
+    }
+}
+
+.carousel {
+    @include flex();
+    @include absfull();
+    &-item {
+        width: $f;
+        flex: 0 0 auto;
+        background: {
+            size: cover;
+            repeat: no-repeat;
+            position: center;
+        }
+    }
+    .arrow {
+        z-index: 2;
+        @include breakpoint(1366px) {
+            &-prev {
+                left: calc(( (100% - #{1366px}) / 2) + #{em(40px)} );
+            }
+            &-next {
+                right: calc( ( (100% - #{1366px}) / 2) + #{em(40px)} );
+            }
+        }
+        &:after, &:before, &-line {
+            background-color: $w;
+        }
+    }
+}

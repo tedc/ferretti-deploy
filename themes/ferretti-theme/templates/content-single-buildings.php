@@ -1,0 +1,70 @@
+<?php
+    $parent = $post->post_parent;
+    $kind = get_field('tipologia');
+ ?>
+<?php while(have_posts()) : the_post(); ?>
+
+<?php get_template_part('templates/' . get_post_type() . '-header'); ?>
+<section <?php post_class(); ?>>
+    <div class="frt_columns row-md container">
+        <div class="cols_40 corner cols_meta">
+            <?php include( locate_template(get_post_type() . '/logo.php', false, false) ); ?>
+            <?php get_template_part(get_post_type() . '/price'); ?>
+            <?php get_template_part(get_post_type() . '/items'); ?>
+            <?php get_template_part(get_post_type() . '/dotations'); ?>
+            <?php get_template_part(get_post_type() . '/year'); ?>
+        </div>
+        <div class="cols_60 offset-left">
+            <div class="frt_paragraph_content">
+            <h1 class="frt_title"><strong><?php the_title(); ?></strong></h1>
+            <?php $post_content = true; include( locate_template(get_post_type() . '/address.php', false, false) ); $post_content = false; ?>
+            <?php the_content(); ?>
+            </div>
+        </div>
+    </div>
+    <?php include( locate_template(get_post_type() . '/plus-map.php', false, false) ); ?>
+    <?php if(get_field('plus_con_icona') || get_field('plus_descrittivi')) : ?>
+    <section class="container row-md">
+        <div class="corner frt_corner_content">
+            <?php get_template_part(get_post_type() . '/icons'); ?>
+            <?php get_template_part(get_post_type() . '/details'); ?>
+         </div>
+    </section>
+    <?php endif; ?>
+    <?php 
+        $gallery = ($kind < 1) ? '-wip' : '';
+        get_template_part(get_post_type() . '/gallery'.$gallery); ?>
+    <?php if($kind < 1) : ?>
+    <?php 
+        $children = new WP_Query(
+            array(
+                'post_type' => get_post_type(),
+                'post_parent' => $post->ID
+            )
+        );
+        if($children->have_posts()) : ?>
+    <h4><?php echo __('Le soluzioni di', 'frt'); ?> <?php the_title(); ?></h4>
+    <ul class="frt_columns" ng-compare-homes>
+        <?php while($children->have_posts()) : $children->the_post(); ?>
+        <?php get_template_part('templates/content', get_post_type()); ?>
+        <?php endwhile; wp_reset_query(); ?>
+    </ul>
+    <nav class="container_btn container_btn_center">
+        <span class="dashed_line"></span>
+        <a href="#" ng-click="compare(<?php echo get_the_ID(); ?>)">
+            <span class="label_button"><?php echo __('Compara', 'frt'); ?></span>
+        </a>
+    </nav>
+    <?php endif; endif; ?>
+    <?php if($kind == 1) : ?>
+    <?php if($parent) :
+       include( locate_template(get_post_type() . '/parentadv.php', false, false) );
+    endif; ?>
+    <?php get_template_part(get_post_type() . '/appuntamento'); ?>  
+    <?php get_template_part(get_post_type() . '/related'); ?>
+    <?php endif; ?>
+    <?php if($kind == 2) : ?>
+    
+    <?php endif; ?>
+</section>
+<?php endwhile; ?>

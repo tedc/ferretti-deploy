@@ -1,0 +1,6 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/edograndinetti/Sites/bspkn/ferretti/web/app/themes/ferretti-theme/source/javascript/modernizr/modernizr.js",
+        "/Users/edograndinetti/Sites/bspkn/ferretti/web/app/themes/ferretti-theme/source/javascript/modernizr/modernizr.build.js"
+    ]
+}

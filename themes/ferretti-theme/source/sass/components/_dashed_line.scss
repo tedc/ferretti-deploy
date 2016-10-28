@@ -1,0 +1,29 @@
+.dashed_line {
+    z-index:-1;
+    height: $border_h;
+    position: absolute;
+    margin-bottom: ($border_h/2)*(-1) ;
+    top: 50%;
+    width: 200vw;
+    left: -100vw;
+    &.bottom {
+        top: 99%;
+    }
+    &.top {
+        top: 0%;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width:100%;
+        @include dash(18px, 6px, $main_color);
+        height: 4px;
+    }
+
+    &_relative{
+        width:100%;
+        left:0;
+        position:relative;
+    }
+}

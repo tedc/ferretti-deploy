@@ -1,7 +1,5 @@
 <?php
     
-    include( locate_template( 'extras/vendor/autoload.php', false, false) );
-    
     add_action( 'rest_api_init', 'api_init' );
     
     function api_init() {
@@ -87,18 +85,17 @@
 ## INSTAGRAM
         
         register_rest_route('api/v1', '/facebook', array(
-           "method" => 'GET',
+            "methods" => 'GET',
             "callback" => 'facebook_ratings'
         ));
         
-        function facebook_ratings() {
-            return array('test'=>'test');
-        }
         
-//        register_rest_route('api/v1', '/instagram', array(
-//            "methods" => 'GET',
-//            "callback" => 'instagram_posts'
-//        ));
+        
+        
+        register_rest_route('api/v1', '/instagram', array(
+            "methods" => 'GET',
+            "callback" => 'instagram_posts'
+        ));
         function instagram_posts() {
             $option = get_option('instagram_settings');
             $client_id = $option['instagram_client_id'];

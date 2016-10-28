@@ -12,3 +12,7 @@
 </ul>
 <?php endif; endif; ?>
 </header>
+
+<span class="arrow-down arrow">
+    <span class="arrow-line"></span>
+</span>

@@ -1,0 +1,107 @@
+$frt_paragraph_padding: 1.9em 2.5em;
+$frt_paragraph_big_padding: 4em 5em;
+
+$frt_paragraph_border_thickness: 3px;
+$frt_paragraph_border_color: #262626;
+$frt_paragraph_2nd_border_thickness: 5px;
+
+$frt_paragraph_animation: ease-out;
+$frt_paragraph_animation_time: 0.4s;
+
+
+
+
+.frt_paragraph{
+  width: 100%;
+  position: relative;
+
+  &:before {
+    background-image: url("../img/strips.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:$frt_paragraph_2nd_border_thickness;
+    left:$frt_paragraph_2nd_border_thickness*(-1);
+    content: "";
+  }
+
+
+  .frt_paragraph_wrapper{
+    border: solid $frt_paragraph_border_thickness $frt_paragraph_border_color;
+    background-color:white;
+    position:relative;
+    width: 100%;
+    padding:em(10px);
+    @include breakpoint(640px){
+      padding:em(20px);
+    }
+    @include breakpoint($bp){
+      padding:em(40px);
+
+      .cols_33 &{
+        padding-top:em(80px);
+        padding-left:em(40px);
+        padding-right:em(40px);
+        padding-bottom:em(40px);
+      }
+    }
+
+
+  }
+
+
+
+
+  /*
+              _   _
+   ___  _ __ | |_(_) ___  _ __  ___
+  / _ \| '_ \| __| |/ _ \| '_ \/ __|
+ | (_) | |_) | |_| | (_) | | | \__ \
+  \___/| .__/ \__|_|\___/|_| |_|___/
+       |_|
+
+  */
+  &.inverse{
+    .frt_paragraph_wrapper {
+      &:before {
+        left: (($frt_paragraph_border_thickness * 2) + $frt_paragraph_2nd_border_thickness ) *(-1);
+      }
+    }
+  }
+
+  &.no_shadow{
+    .frt_paragraph_wrapper {
+      &:before{
+        background-image: none;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+/*
+<div class="frt_paragraph no_border no_padding">
+    <div class="frt_paragraph_wrapper">
+        <div class="frt_paragraph_content">
+            <div class="frt_subtitle">con voi dal 1967,</div>
+            <div class="frt_title">siamo di casa</div>
+            <p class="frt_text">
+                Ferretticasa lavora insieme a voi
+                per le migliori proposte in termini di costruzione e arredamento.
+                Abbiamobisogno di conoscere vostri bisogni e di guardare sempre di più a
+                soluzioni tecniche e di design che siano innovative e ottimali, ed è
+                quello che facciamo da sessant'anni con lealtà e rispetto.
+            </p>
+        </div>
+    </div>
+</div>
+*/
+

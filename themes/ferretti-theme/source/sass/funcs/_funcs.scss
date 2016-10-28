@@ -22,15 +22,15 @@
 }
 
 @mixin clearfix {
-	zoom: 1;
-	&:before,
-	&:after {
-		content: "";
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
+    zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 @function pad($val, $isDist: true) {
@@ -124,66 +124,7 @@
 }
 
 @mixin padder-center() {
-	@include flex($ai: center, $jc: center, $ac: center);
-}
-
-@mixin triangle($pos : "top left", $color : $w, $resp : true, $h : $dist*8, $in_content : false) {
-    content: '';
-    border-style: solid;
-    $content_size: 1024px;
-    @if $pos == "top left" {
-        border-color: $color transparent transparent transparent;
-        border-width: #{em($h)} 100vw 0 0;
-        @if $in_content {
-            @include breakpoint($content_size) {
-                border-right-width: em($content_size);
-            }
-        }
-        @if $resp {
-            @include breakpoint(1280px) {
-                border-right-width: #{$max-width}
-            }
-        }
-    } @elseif $pos == "bottom left" {
-        border-color: transparent transparent transparent $color;
-        border-width: #{em($h)} 0 0 100vw;
-        @if $in_content {
-            @include breakpoint($content_size) {
-                border-left-width: em($content_size);
-            }
-        }
-        @if $resp {
-            @include breakpoint(1280px) {
-                border-left-width: #{$max-width}
-            }
-        }
-    } @elseif $pos == "top right" {
-        border-color: transparent $color transparent transparent;
-        border-width: 0 100vw #{em($h)} 0;
-        @if $in_content {
-            @include breakpoint($content_size) {
-                border-right-width: em($content_size);
-            }
-        }
-        @if $resp {
-            @include breakpoint(1280px) {
-                border-right-width: #{$max-width};
-            }
-        }
-    } @elseif $pos == "bottom right" {
-        border-color: transparent transparent $color transparent;
-        border-width: 0 0 #{em($h)} 100vw;
-        @if $in_content {
-            @include breakpoint($content_size) {
-                border-left-width: em($content_size);
-            }
-        }
-        @if $resp {
-            @include breakpoint(1280px) {
-                border-left-width: #{$max-width};
-            }
-        }
-    }
+    @include flex($ai: center, $jc: center, $ac: center);
 }
 
 @mixin hidden($isHidden : true, $onlyTrans : false) {
@@ -204,11 +145,31 @@
 }
 
 @mixin dash($size, $distance, $color) {
-	background: linear-gradient(to left,
-		  $color $size/2, transparent 0,
-		  transparent calc(50% - #{$size/2}), $color 0,
-		  $color calc(50% + #{$size/2}), transparent 0,
-		  transparent calc(100% - #{$size/2}), $color 0), {
-	size: (( $size * 2 )+ $distance) 100%;
-	};
+    background: linear-gradient(to left,
+        $color $size/2, transparent 0%,
+        transparent calc(50% - #{$size/2}), $color 0%,
+        $color calc(50% + #{$size/2}), transparent 0%,
+        transparent calc(100% - #{$size/2}), $color 0), {
+            size: (( $size * 2 )+ $distance) 100%;
+            };
+}
+
+
+@mixin normalize_padding{
+    padding: {
+        left: em(10px);
+        right: em(10px);
+    }
+    @include breakpoint(640px){
+        padding: {
+            left: em(20px);
+            right: em(20px);
+        }
+    }
+    @include breakpoint($bp){
+        padding: {
+            left: em(40px);
+            right: em(40px);
+        }
+    }
 }

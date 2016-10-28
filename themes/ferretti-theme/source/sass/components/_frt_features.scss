@@ -1,0 +1,71 @@
+
+.frt_features{
+    justify-content: center;
+    padding-bottom: em(40px);
+
+    .cols_33{
+        display: block;
+
+        .img_features{
+            display: block;
+            margin: 0 auto;
+            padding-bottom: em(20px);
+            height: auto !important;
+        }
+        .label_features{
+            font-family: $secondary_font;
+            letter-spacing: $letter-spacing;
+            color: $light_blue;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: em(12px);
+            text-align: center;
+            padding: 0 em(40px) em(40px) em(40px);
+            line-height: percentage(em(19px,12px)/em(12px)) ;
+        }
+    }
+}
+.container_text_features{
+    padding-top: em(80px);
+    &.no_icons {
+        padding-top: 0;
+    }
+    &_title{
+        margin:0px;
+        font-size: em(24px);
+        font-family: $secondary_font;
+        font-weight: 600;
+        letter-spacing: $letter-spacing;
+        color: $blue;
+    }
+    p{
+        font-family: $main_font;
+        letter-spacing: $letter-spacing-paragraph;
+        color: $main_color;
+        font-size: em(16px);
+        margin-bottom: em(40px);
+        line-height: $interline_paragraph;
+    }
+    p:last-child{
+        margin-bottom: 0px;
+    }
+}
+
+
+/*label{
+bold:600;
+font-size:12px;
+interlinea: percentage(em(19px,12px))
+}*/
+/*title{
+bold:400;
+
+}*/
+/*frt_features{
+padding-bottom: em(40px);
+}*/
+/*paragrapf{///////////////////////////////
+padding-top: em(80px);
+}*/
+/*
+titoli -> h3*/

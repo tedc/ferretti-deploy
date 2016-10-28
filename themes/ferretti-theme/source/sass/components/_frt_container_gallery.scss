@@ -1,0 +1,36 @@
+
+.frt_gallery {
+
+    align-items: center;
+
+    [class^="cols_"],[class*=" cols_"]{
+        position: relative;
+    }
+    .cols_40{
+
+    }
+    &.first_gallery {
+        .cols_40 {
+            z-index: 1;
+            position: relative;
+        }
+        .frt_paragraph {
+            @include breakpoint($bp) {
+                transform: translate3d(-#{em(40px), #{em(40px)}}, 0);
+            }
+        }
+    }
+    .second_gallery {
+        position: relative;
+        padding-top: percentage(260px/792px);
+        width:100%;
+        .frt_img {
+            width:100%;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    img {
+        width: $f;
+    }
+}

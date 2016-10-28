@@ -21,22 +21,30 @@ $blog : #0069b4;
 $about : #90462a;
 $frt_btn_border_color: #262626;
 $main_font_size: 16px;
-$main_font: "sofia-pro", 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$secondary_font: "museo-regular", 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
+$secondary_font: "sofia-pro", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$main_font: "museo-sans", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$letter-spacing-price: 0.2em;
 $letter-spacing: 0.2em;
-$letter-spacing-paragraph: 0.15em;
-$letter-spacing-btn: 0.25em;
-$interline: 2em;
+$letter-spacing-paragraph: 0.072em;
+$letter-spacing-btn: em(1px);
+$interline_paragraph: percentage(38px/24px); 
+$interline_title:percentage(38px/24px);
+$letter-spacing-title: 0.2em;
 
 // SIZE
 $f: 100%;
 $bp: 850px;
-$max-width: em(1680px);
 $dist: 10px;
 $speed: 0.5s;
 $golden-ratio: 1.61803398875;
 $border_h: 4px;
+$first_percent : $f/$golden-ratio;
+$second_percent : $f/$golden-ratio/$golden-ratio;
+
+$max-width: 1366px;
+$width_max_site: 100%;
+$storia_padding: percentage(130px/410px);
+$vb: $bp;
 
 @import 'extends';
 

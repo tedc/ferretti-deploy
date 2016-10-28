@@ -6,7 +6,7 @@ use Roots\Sage\Wrapper;
 ?>
 
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html class="no-js" <?php language_attributes(); ?> ng-app="frt">
   <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
     <!--[if IE]>
@@ -20,11 +20,11 @@ use Roots\Sage\Wrapper;
     ?>
     <main class="wrapper" role="document">
         <?php include Wrapper\template_path(); ?>
+        <?php
+          do_action('get_footer');
+          get_template_part('templates/footer');
+          wp_footer();
+        ?>
     </main>
-    <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
-      wp_footer();
-    ?>
-  </body>
+    </body>
 </html>

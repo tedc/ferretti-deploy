@@ -27,3 +27,9 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+function refresh_url() {
+  flush_rewrite_rules();
+}
+add_action('init', 'refresh_url');
