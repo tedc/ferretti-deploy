@@ -43,18 +43,27 @@
             )
         );
         if($children->have_posts()) : ?>
-    <h4><?php echo __('Le soluzioni di', 'frt'); ?> <?php the_title(); ?></h4>
-    <ul class="frt_columns" ng-compare-homes>
-        <?php while($children->have_posts()) : $children->the_post(); ?>
-        <?php get_template_part('templates/content', get_post_type()); ?>
-        <?php endwhile; wp_reset_query(); ?>
-    </ul>
-    <nav class="container_btn container_btn_center">
-        <span class="dashed_line"></span>
-        <a href="#" ng-click="compare(<?php echo get_the_ID(); ?>)">
-            <span class="label_button"><?php echo __('Compara', 'frt'); ?></span>
-        </a>
-    </nav>
+        <header class="header-section container row-md">
+            <h4 class="frt_title"><?php echo __('Le soluzioni di', 'frt'); ?> <?php the_title(); ?></h4>
+        </header>
+        <nav class="container_button container_button_center">
+            <?php $terms = get_terms('locali', array('orderby' =>'name')); 
+                foreach($terms as $term) :
+                echo '<a href="#" ng-click="$event.preventDefault()" class="frt_btn"><span class="btn_wrapper"><span class="label_button">'.$term->name.'</span></span></a>';
+                endforeach; ?>
+        </nav>
+        <ul class="frt_columns property_list row-md container" ng-compare-homes>
+            <?php while($children->have_posts()) : $children->the_post(); ?>
+            <?php get_template_part('templates/content', get_post_type()); ?>
+            <?php endwhile; wp_reset_query(); ?>
+        </ul>
+        <nav class="container_button container_button_center">
+            <span class="dashed_line"></span>
+            <a href="#" ng-click="compare(<?php echo get_the_ID(); ?>)">
+                <span class="label_button"><?php echo __('Compara', 'frt'); ?></span>
+            </a>
+        </nav>
+    </section>
     <?php endif; endif; ?>
     <?php if($kind == 1) : ?>
     <?php if($parent) :
