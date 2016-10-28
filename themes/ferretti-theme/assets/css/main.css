@@ -2312,7 +2312,7 @@ titoli -> h3*/
   letter-spacing: 0.2em;
 }
 
-.frt_quotes {
+.frt_quotes, .frt_wip {
   position: relative;
   display: -webkit-box;
   display: -moz-box;
@@ -2326,7 +2326,7 @@ titoli -> h3*/
           flex-direction: column;
   overflow: hidden;
 }
-.frt_quotes .corner {
+.frt_quotes .corner, .frt_wip .corner {
   position: absolute;
   height: 100%;
   top: 0;
@@ -2335,7 +2335,7 @@ titoli -> h3*/
      -moz-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
 }
-.frt_quotes_list {
+.frt_quotes_list, .frt_wip_list {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -2348,29 +2348,29 @@ titoli -> h3*/
           align-items: center;
 }
 @media screen and (min-width: 50em) {
-  .frt_quotes_list {
+  .frt_quotes_list, .frt_wip_list {
     padding: 5em 0;
   }
 }
-.frt_quotes_list_item {
+.frt_quotes_list_item, .frt_wip_list_item {
   width: 100%;
   -webkit-box-flex: 0;
      -moz-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
-.frt_quotes_list_item .container_quote {
+.frt_quotes_list_item .container_quote, .frt_wip_list_item .container_quote {
   max-width: 844.23443px;
   position: relative;
   margin: 0 auto;
   padding: 2.5em;
 }
 @media screen and (min-width: 50em) {
-  .frt_quotes_list_item .container_quote {
+  .frt_quotes_list_item .container_quote, .frt_wip_list_item .container_quote {
     padding: 5em;
   }
 }
-.frt_quotes_list_item .container_quote_mediaobject {
+.frt_quotes_list_item .container_quote_mediaobject, .frt_wip_list_item .container_quote_mediaobject {
   position: absolute;
   max-width: 100%;
   left: 50%;
@@ -2395,21 +2395,21 @@ titoli -> h3*/
       -ms-flex-align: center;
           align-items: center;
 }
-.frt_quotes_list_item .container_quote_mediaobject .container_img_mediaobject {
+.frt_quotes_list_item .container_quote_mediaobject .container_img_mediaobject, .frt_wip_list_item .container_quote_mediaobject .container_img_mediaobject {
   width: 6.25em;
   height: 6.25em;
   border: 2px solid #262626;
   margin: 0;
 }
-.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject {
+.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject, .frt_wip_list_item .container_quote_mediaobject .container_text_mediaobject {
   padding-left: 2.5em;
 }
-.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject .name_reviewer {
+.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject .name_reviewer, .frt_wip_list_item .container_quote_mediaobject .container_text_mediaobject .name_reviewer {
   font-weight: 700;
   font-family: "sofia-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.125em;
 }
-.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject .star_review {
+.frt_quotes_list_item .container_quote_mediaobject .container_text_mediaobject .star_review, .frt_wip_list_item .container_quote_mediaobject .container_text_mediaobject .star_review {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -2421,21 +2421,21 @@ titoli -> h3*/
       -ms-flex-align: center;
           align-items: center;
 }
-.frt_quotes_list_item .container_quote .frt_review {
+.frt_quotes_list_item .container_quote .frt_review, .frt_wip_list_item .container_quote .frt_review {
   visibility: hidden;
   opacity: 0;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   transition: 0.5s;
 }
-.frt_quotes_list_item .container_quote img {
+.frt_quotes_list_item .container_quote img, .frt_wip_list_item .container_quote img {
   width: 100%;
 }
-.frt_quotes_list_item .container_quote.has_review:hover .frt_review {
+.frt_quotes_list_item .container_quote.has_review:hover .frt_review, .frt_wip_list_item .container_quote.has_review:hover .frt_review {
   opacity: 1;
   visibility: visible;
 }
-.frt_quotes_list_item .container_quote.has_review:hover .container_quote_mediaobject {
+.frt_quotes_list_item .container_quote.has_review:hover .container_quote_mediaobject, .frt_wip_list_item .container_quote.has_review:hover .container_quote_mediaobject {
   opacity: 0;
   visibility: hidden;
 }
