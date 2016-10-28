@@ -3,7 +3,16 @@
     $kind = get_field('tipologia');
  ?>
 <?php while(have_posts()) : the_post(); ?>
-
+<?php if($kind == 1) : ?>
+<nav class="subnav">
+    <div class="container row">
+        <ul class="anchors"></ul>
+        <div class="offset-left">
+            
+        </div>
+    </div>
+</nav>
+<?php endif; ?>
 <?php get_template_part('templates/' . get_post_type() . '-header'); ?>
 <section <?php post_class(); ?>>
     <div class="frt_columns row-md container">
