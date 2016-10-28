@@ -32,7 +32,7 @@
     </section>
     <?php endif; ?>
     <?php 
-        $gallery = ($kind < 1) ? '-wip' : '';
+        $gallery = (get_field('is_wip')) ? '-wip' : '';
         get_template_part(get_post_type() . '/gallery'.$gallery); ?>
     <?php if($kind < 1) : ?>
     <?php 
