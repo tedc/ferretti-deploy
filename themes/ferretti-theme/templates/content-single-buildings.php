@@ -53,6 +53,7 @@
                 echo '<a href="#" ng-click="$event.preventDefault()" class="frt_btn"><span class="btn_wrapper"><span class="label_button">'.$term->name.'</span></span></a>';
                 endforeach; ?>
         </nav>
+    <section class="row-md">
         <ul class="frt_columns property_list row-md container" ng-compare-homes>
             <?php while($children->have_posts()) : $children->the_post(); ?>
             <?php get_template_part('templates/content', get_post_type()); ?>
