@@ -44,7 +44,7 @@
         );
         if($children->have_posts()) : ?>
         <header class="header-section container row-md">
-            <h4 class="frt_title"><?php echo __('Le soluzioni di', 'frt'); ?> <?php the_title(); ?></h4>
+            <h4 class="frt_title"><?php echo __('Le soluzioni di', 'frt'); ?> <strong><?php the_title(); ?></strong></h4>
         </header>
         <nav class="container_button container_button_center">
             <span class="dashed_line"></span>
