@@ -25,4 +25,6 @@ ruleset.xml
 .eslintrc
 mu-plugins
 languages
+source
 themes/ferretti-theme/source
+*.DS_Store
