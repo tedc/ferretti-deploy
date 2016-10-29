@@ -1,0 +1,7 @@
+nbproject/private
+.idea/*
+vendor/*
+docs/*
+tmp/*
+composer.lock
+.DS_*
