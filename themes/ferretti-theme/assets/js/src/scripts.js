@@ -38600,6 +38600,31 @@ module.exports = angular;
 
 },{"./angular":11}],13:[function(require,module,exports){
 module.exports = function() {
+  var anchors;
+  return anchors = {
+    controller: [
+      "$element", '$scope', "$document", function($element, $scope, $document) {
+        $scope.goToAnchor = function(val) {
+          var lnd, nav;
+          nav = $document[0].querySelector('.banner').offsetHeight;
+          lnd = $element[0].offsetHeight;
+          controller.scrollTo(function(newpos) {
+            TweenMax.to(window, 1, {
+              scrollTo: {
+                y: newpos - nav - lnd
+              }
+            });
+          });
+          controller.scrollTo(val);
+        };
+      }
+    ]
+  };
+};
+
+
+},{}],14:[function(require,module,exports){
+module.exports = function() {
   var carousel;
   return carousel = {
     scope: true,
@@ -38636,7 +38661,7 @@ module.exports = function() {
 };
 
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   var facebook;
   return facebook = {
@@ -38664,15 +38689,15 @@ module.exports = function() {
 };
 
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var frt;
 
 frt = angular.module('frt');
 
-frt.directive('ngCarousel', [require('./carousel.coffee')]).directive('ngMap', ["$timeout", "loadGoogleMapAPI", "$compile", require('./map.coffee')]).directive('ngInstagram', [require('./instagram.coffee')]).directive('ngFbReviews', [require('./facebook.coffee')]);
+frt.directive('ngCarousel', [require('./carousel.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngMap', ["$timeout", "loadGoogleMapAPI", "$compile", require('./map.coffee')]).directive('ngInstagram', [require('./instagram.coffee')]).directive('ngFbReviews', [require('./facebook.coffee')]);
 
 
-},{"./carousel.coffee":13,"./facebook.coffee":14,"./instagram.coffee":16,"./map.coffee":17}],16:[function(require,module,exports){
+},{"./anchors.coffee":13,"./carousel.coffee":14,"./facebook.coffee":15,"./instagram.coffee":17,"./map.coffee":18}],17:[function(require,module,exports){
 module.exports = function() {
   var instagram;
   return instagram = {
@@ -38695,7 +38720,7 @@ module.exports = function() {
 };
 
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var mapInit;
 
 mapInit = require('../../core/map.coffee');
@@ -38750,7 +38775,7 @@ module.exports = function($timeout, loadGoogleMapAPI, $compile) {
 };
 
 
-},{"../../core/map.coffee":25}],18:[function(require,module,exports){
+},{"../../core/map.coffee":26}],19:[function(require,module,exports){
 module.exports = function($resource, cacheService) {
   var getResults, source;
   self.url = "/wp-json/api/v1/facebook";
@@ -38792,7 +38817,7 @@ module.exports = function($resource, cacheService) {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -38821,7 +38846,7 @@ module.exports = function() {
 };
 
 
-},{"angular":12}],20:[function(require,module,exports){
+},{"angular":12}],21:[function(require,module,exports){
 var frt;
 
 frt = angular.module('frt');
@@ -38974,7 +38999,7 @@ frt.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]).factory('InstagramPosts', ["$resource", "cacheService", require('./instagram.coffee')]).factory('FacebookReviews', ["$resource", "cacheService", require('./facebook.coffee')]).factory('getPosts', ["$resource", "cacheService", require('./more.coffee')]).factory('getSearch', ["$resource", require('./search.coffee')]);
 
 
-},{"./facebook.coffee":18,"./form.coffee":19,"./instagram.coffee":21,"./more.coffee":22,"./search.coffee":23}],21:[function(require,module,exports){
+},{"./facebook.coffee":19,"./form.coffee":20,"./instagram.coffee":22,"./more.coffee":23,"./search.coffee":24}],22:[function(require,module,exports){
 module.exports = function($resource, cacheService) {
   var getResults, source;
   self.url = "/wp-json/api/v1/instagram";
@@ -39015,7 +39040,7 @@ module.exports = function($resource, cacheService) {
 };
 
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function($resource, cacheService) {
   var getPost, post;
   post = $resource(baseUrl + "/wp-json/wp/v2/:types/?offset=:offset:term:tag&per_page=:more&filter[order]=:order&filter[orderby]=:orderby&lang=:lang:checkbox:search", {
@@ -39074,7 +39099,7 @@ module.exports = function($resource, cacheService) {
 };
 
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function($resource) {
   var getSearch, search, self;
   self = this;
@@ -39117,8 +39142,10 @@ module.exports = function($resource) {
 };
 
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 var angular, frt;
+
+window.controller = new ScrollMagic.Controller();
 
 angular = require('angular');
 
@@ -39139,7 +39166,7 @@ require('./angular/resources/index.coffee');
 require('./angular/directives/index.coffee');
 
 
-},{"./angular/directives/index.coffee":15,"./angular/resources/index.coffee":20,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}],25:[function(require,module,exports){
+},{"./angular/directives/index.coffee":16,"./angular/resources/index.coffee":21,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}],26:[function(require,module,exports){
 var em, mapInit;
 
 em = function(val) {
@@ -39356,7 +39383,7 @@ module.exports = function(id, lat, scope, compile) {
 };
 
 
-},{"./marker.coffee":26}],26:[function(require,module,exports){
+},{"./marker.coffee":27}],27:[function(require,module,exports){
 var Marker;
 
 Marker = (function() {
@@ -39410,4 +39437,4 @@ Marker = (function() {
 module.exports = Marker;
 
 
-},{}]},{},[24]);
+},{}]},{},[25]);

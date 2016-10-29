@@ -23,7 +23,9 @@
     );
     // START IF                      
     if($query->have_posts()) : ?>
-<section class="row-md">
+<section class="row-md map-section" id="map-service">
+<?php get_template_part(get_post_type() . '/plant'); ?>
+<?php get_template_part(get_post_type() . '/brochure'); ?>
 <div class="map_service" ng-map map-data="[<?php echo $coords; ?>]" map-id="map">
     <div class="map" id="map"></div>
     <div class="map_service_cols">
@@ -38,7 +40,8 @@
         <li class="map_service_item">
             <a href="#" ng-click="$event.preventDefault(); direction('<?php echo get_field('posizione')['address']; ?>', '<?php echo $this_coords['address']; ?>')">
                 <?php the_field('label'); ?>
-            </a>        
+            </a> 
+            <p class="map_service_desc"><?php the_field('descrizione'); ?></p>
         </li>
     <?php 
         // END LOOP

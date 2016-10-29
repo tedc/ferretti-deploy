@@ -4,18 +4,11 @@
  ?>
 <?php while(have_posts()) : the_post(); ?>
 <?php if($kind == 1) : ?>
-<nav class="subnav">
-    <div class="container row">
-        <ul class="anchors"></ul>
-        <div class="offset-left">
-            
-        </div>
-    </div>
-</nav>
+<?php get_template_part(get_post_type() . '/subnav'); ?>
 <?php endif; ?>
 <?php get_template_part('templates/' . get_post_type() . '-header'); ?>
 <section <?php post_class(); ?>>
-    <div class="frt_columns row-md container">
+    <div class="frt_columns row-md container" id="info">
         <div class="cols_40 corner cols_meta">
             <?php include( locate_template(get_post_type() . '/logo.php', false, false) ); ?>
             <?php get_template_part(get_post_type() . '/price'); ?>
@@ -33,7 +26,7 @@
     </div>
     <?php include( locate_template(get_post_type() . '/plus-map.php', false, false) ); ?>
     <?php if(get_field('plus_con_icona') || get_field('plus_descrittivi')) : ?>
-    <section class="container row-md">
+    <section class="container row-md" id="plus">
         <div class="corner frt_corner_content">
             <?php get_template_part(get_post_type() . '/icons'); ?>
             <?php get_template_part(get_post_type() . '/details'); ?>

@@ -4,7 +4,7 @@
     <div class="frt_columns frt_gallery first_gallery">
         <div class="cols_60" style="background-image:url(<?php echo $images[0]['url']; ?>)">
             <figure class="frt_img flip">
-                <div class="frt_image_wrapper">
+                <div class="frt_img_wrapper">
                     <img src="<?php echo $images[0]['url']; ?>" />
                 </div>
             </figure>
@@ -42,7 +42,7 @@
         <div class="cols_60" style="background-image:url(<?php echo $images[0]['url']; ?>)">
             <div class="second_gallery">
                <figure class="frt_img flip">
-                    <div class="frt_image_wrapper">
+                    <div class="frt_img_wrapper">
                         <img src="<?php echo $images[0]['url']; ?>" />
                     </div>
                 </figure>
